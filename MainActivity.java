@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+    public Loader<Cursor> onCreateLoader(int id, Bundle args){
+        Log.d(TAG, "onCreateLoader: ");
         return new CursorLoader(
                 getApplicationContext(),
                 Uri.parse("content://com.mac.fireflies.wgt.clientscontentproviders/users"),
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        Log.d(TAG, "onLoadFinished: ");
         if (data != null && data.getCount() > 0){
             data.moveToFirst();
             do{
